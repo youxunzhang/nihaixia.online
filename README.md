@@ -16,11 +16,16 @@
 ├── index.html         # 首页
 ├── courses.html       # 课程页面
 ├── resources.html     # 资料页面
+├── news.html          # 资讯页面
 ├── about.html         # 关于页面
+├── articles/          # 文章目录
+│   ├── ni-haixia-intro.html        # 倪海厦简介文章
+│   └── ni-haixia-death-analysis.html # 倪海厦之死分析文章
 ├── css/
 │   └── style.css      # 统一样式文件
 ├── js/
 │   └── main.js        # 主要JavaScript功能
+├── doc/               # 原始文档目录
 ├── images/            # 图片资源目录
 └── README.md          # 说明文档
 ```
@@ -58,6 +63,19 @@
 - 资源详细信息
 - 下载和预览功能
 - 使用说明
+
+### 资讯页面 (news.html)
+- 文章列表展示
+- 分类筛选功能
+- 文章摘要和元信息
+- 订阅功能
+- 相关文章推荐
+
+### 文章页面 (articles/*.html)
+- 详细文章内容
+- 文章标签和分类
+- 相关文章链接
+- 分享和打印功能
 
 ### 关于页面 (about.html)
 - 网站宗旨介绍
