@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initScrollEffects();
     initSearchFunctionality();
+    initCookieConsent();
+    initAdBlockerDetection();
 });
 
 // 导航功能
@@ -273,9 +275,152 @@ function debounce(func, wait) {
     };
 }
 
+// Cookie同意功能
+function initCookieConsent() {
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    if (!cookieConsent) {
+        const consentBanner = document.createElement('div');
+        consentBanner.className = 'cookie-consent';
+        consentBanner.innerHTML = `
+            <div class="cookie-content">
+                <p>本网站使用Cookie来改善用户体验和显示相关广告。继续使用网站即表示您同意我们的Cookie政策。</p>
+                <div class="cookie-buttons">
+                    <button class="btn btn-accept">同意</button>
+                    <button class="btn btn-decline">拒绝</button>
+                    <a href="privacy.html" class="btn btn-outline">了解更多</a>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(consentBanner);
+        
+        // 添加样式
+        const style = document.createElement('style');
+        style.textContent = `
+            .cookie-consent {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(44, 24, 16, 0.95);
+                color: #f4e4bc;
+                padding: 20px;
+                z-index: 10000;
+                backdrop-filter: blur(10px);
+            }
+            .cookie-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .cookie-content p {
+                margin: 0;
+                flex: 1;
+                min-width: 300px;
+            }
+            .cookie-buttons {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            .btn-accept {
+                background: #4caf50;
+                border-color: #4caf50;
+            }
+            .btn-decline {
+                background: #f44336;
+                border-color: #f44336;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // 事件监听
+        consentBanner.querySelector('.btn-accept').addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            consentBanner.remove();
+        });
+        
+        consentBanner.querySelector('.btn-decline').addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'declined');
+            consentBanner.remove();
+        });
+    }
+}
+
+// 广告拦截器检测
+function initAdBlockerDetection() {
+    setTimeout(function() {
+        const testAd = document.createElement('div');
+        testAd.className = 'adsbox';
+        testAd.style.cssText = 'position: absolute; left: -10000px; top: -1000px; width: 1px; height: 1px;';
+        document.body.appendChild(testAd);
+        
+        setTimeout(function() {
+            const isAdBlockerActive = testAd.offsetHeight === 0;
+            testAd.remove();
+            
+            if (isAdBlockerActive) {
+                showAdBlockerMessage();
+            }
+        }, 100);
+    }, 2000);
+}
+
+// 显示广告拦截器消息
+function showAdBlockerMessage() {
+    const message = document.createElement('div');
+    message.className = 'ad-blocker-message';
+    message.innerHTML = `
+        <div class="message-content">
+            <p>检测到您可能使用了广告拦截器。本网站通过广告收入来维持运营，如果您愿意，请考虑禁用广告拦截器以支持我们。</p>
+            <button class="btn btn-outline" onclick="this.parentElement.parentElement.remove()">我知道了</button>
+        </div>
+    `;
+    
+    // 添加样式
+    const style = document.createElement('style');
+    style.textContent = `
+        .ad-blocker-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            border: 2px solid #8b4513;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            max-width: 300px;
+        }
+        .message-content p {
+            margin-bottom: 15px;
+            color: #5d4037;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    document.body.appendChild(message);
+    
+    // 5秒后自动消失
+    setTimeout(function() {
+        if (message.parentElement) {
+            message.remove();
+        }
+    }, 5000);
+}
+
 // 导出函数供其他页面使用
 window.NiHaiXiaWebsite = {
     smoothScrollTo,
     formatDate,
-    debounce
+    debounce,
+    initCookieConsent,
+    initAdBlockerDetection
 }; 

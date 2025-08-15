@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# 允许访问所有页面
+Allow: /index.html
+Allow: /courses.html
+Allow: /resources.html
+Allow: /news.html
+Allow: /about.html
+
+# 允许访问法律页面
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /disclaimer.html
+
+# 允许访问静态资源
+Allow: /style.css
+Allow: /main.js
+Allow: /images/
+
+# 网站地图
+Sitemap: https://nihaixia.online/sitemap.xml
+
+# 爬取延迟（秒）
+Crawl-delay: 1

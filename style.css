@@ -27,6 +27,69 @@ body {
     display: none;
 }
 
+/* 免责声明样式 */
+.disclaimer-section {
+    margin-bottom: 30px;
+}
+
+.disclaimer-content {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border: 2px solid #ffc107;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+}
+
+.disclaimer-content h3 {
+    color: #856404;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.disclaimer-content p {
+    color: #856404;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 用户反馈样式 */
+.feedback-content {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0d3c0;
+}
+
+.feedback-content p {
+    color: #5d4037;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.feedback-options {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #8b4513;
+    border: 2px solid #8b4513;
+}
+
+.btn-outline:hover {
+    background: #8b4513;
+    color: #f4e4bc;
+}
+
 /* 百度网盘分享 */
 .baidu-share {
     background: #fff;
@@ -1560,4 +1623,69 @@ footer {
     .herbs-more {
         padding: 25px 20px;
     }
-} 
+}
+
+/* 免责声明页面特殊样式 */
+.disclaimer-warning {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border: 3px solid #f44336;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.2);
+}
+
+.disclaimer-warning h2 {
+    color: #d32f2f;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.disclaimer-warning p {
+    color: #d32f2f;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: bold;
+}
+
+.disclaimer-final {
+    background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+    border: 2px solid #4caf50;
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+
+.disclaimer-final h3 {
+    color: #2e7d32;
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.disclaimer-final p {
+    color: #2e7d32;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.policy-note {
+    background: #f8f4f0;
+    border-left: 4px solid #8b4513;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 0 10px 10px 0;
+}
+
+.policy-note p {
+    color: #5d4037;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
