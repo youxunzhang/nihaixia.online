@@ -5,6 +5,7 @@ Allow: /
 Allow: /index.html
 Allow: /courses.html
 Allow: /resources.html
+Allow: /videos.html
 Allow: /news.html
 Allow: /about.html
 
@@ -23,4 +24,5 @@ Sitemap: https://nihaixia.online/sitemap.xml
 
 # 爬取延迟（秒）
 Crawl-delay: 1
+
 

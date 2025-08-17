@@ -54,6 +54,7 @@ nihaixia.online/
 ├── index.html          # 首页
 ├── courses.html        # 课程页面
 ├── resources.html      # 资料页面
+├── videos.html         # 视频页面
 ├── news.html          # 资讯页面
 ├── about.html         # 关于页面
 ├── privacy.html       # 隐私政策
